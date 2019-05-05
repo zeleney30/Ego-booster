@@ -62,9 +62,9 @@ local function on_paint(ctx)
 
 		renderer.circle(x_local - 53, y_local, r, g, b, a, 69, 0, 1)
 		renderer.circle(x_local + 53, y_local, r, g, b, a, 69, 0, 1)
-		renderer.rectangle(x_local - 50, y_local - kd * 100, 100, kd * 100, r, g, b, a)
-		renderer.circle(x_local, y_local - kd * 100, r, g, b, a, 81, 180, 0.53)
-		renderer.rectangle(x_local - 3, y_local - kd * 100 - 81, 6, 35, 0, 0, 0, a)
+		renderer.rectangle(x_local - 50, y_local - kd_2 * 100, 100, kd_2 * 100, r, g, b, a)
+		renderer.circle(x_local, y_local - kd_2 * 100, r, g, b, a, 81, 180, 0.53)
+		renderer.rectangle(x_local - 3, y_local - kd_2 * 100 - 81, 6, 35, 0, 0, 0, a)
 	else
 		visibility(skinColor, false)
 		visibility(local_x, false)
