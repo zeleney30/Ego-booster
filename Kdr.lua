@@ -5,6 +5,7 @@ local enable = ui.new_checkbox("MISC", "Settings", "Ego booster")
 local skinColor = ui.new_combobox("MISC", "Settings", "Skin color", "White", "Black")
 local local_x = ui.new_slider("MISC", "Settings", "Position (X)", 0, w)
 local local_y = ui.new_slider("MISC", "Settings", "Position (Y)", 0, h)
+local size = ui.new_slider("MISC", "Settings", "Size", 0, 100)
 
 local x_local = 1
 local y_local = 450
@@ -59,16 +60,18 @@ local function on_paint(ctx)
 		visibility(skinColor, true)
 		visibility(local_x, true)
 		visibility(local_y, true)
+		visibility(size, true)
 
-		renderer.circle(x_local - 53, y_local, r, g, b, a, 69, 0, 1)
-		renderer.circle(x_local + 53, y_local, r, g, b, a, 69, 0, 1)
-		renderer.rectangle(x_local - 50, y_local - kd_2 * 100, 100, kd_2 * 100, r, g, b, a)
-		renderer.circle(x_local, y_local - kd_2 * 100, r, g, b, a, 81, 180, 0.53)
-		renderer.rectangle(x_local - 3, y_local - kd_2 * 100 - 81, 6, 35, 0, 0, 0, a)
+		renderer.circle(x_local - 13 - ui.get(size) / 2, y_local, r, g, b, a, 25 + ui.get(size), 0, 1)
+		renderer.circle(x_local + 13 + ui.get(size) / 2, y_local, r, g, b, a, 25 + ui.get(size), 0, 1)
+		renderer.rectangle(x_local - 14 - ui.get(size) / 2, y_local - kd_2 * 100, 28 + ui.get(size), kd_2 * 100 + ui.get(size), r, g, b, a)
+		renderer.circle(x_local, y_local - kd_2 * 100, r, g, b, a, 30 + ui.get(size), 180, 0.53)
+		renderer.rectangle(x_local - kd_2 - ui.get(size) / 8, y_local - kd_2 * 100 - 30 - ui.get(size), 4 + ui.get(size) / 4, 11 + ui.get(size), 0, 0, 0, a)
 	else
 		visibility(skinColor, false)
 		visibility(local_x, false)
 		visibility(local_y, false)
+		visibility(size, false)
 	end
 
 	if globals.mapname == nil then
